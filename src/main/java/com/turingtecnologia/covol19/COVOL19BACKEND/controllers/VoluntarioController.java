@@ -40,6 +40,6 @@ public class VoluntarioController {
 	
 	@GetMapping(value = "/voluntarios/{cidade}")
 	public List<Voluntario> listaVoluntariosPorCidade(@PathVariable(value = "cidade") String cidade){
-		return repository.findByCidade(cidade);
+		return repository.findByCidadeLikeIgnoreCase(cidade);
 	}
 }
