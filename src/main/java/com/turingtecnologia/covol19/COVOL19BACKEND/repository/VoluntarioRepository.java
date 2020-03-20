@@ -9,7 +9,7 @@ import com.turingtecnologia.covol19.COVOL19BACKEND.models.Voluntario;
 
 public interface VoluntarioRepository extends JpaRepository<Voluntario, Long>{
 	
-	@Query(value = "select * from tb_voluntarios where cidade = ? ", nativeQuery = true)
+	@Query(value = "select * from tb_voluntarios where cidade = :cidade ", nativeQuery = true)
 	List<Voluntario> findByCidade(String cidade);
 
 }
