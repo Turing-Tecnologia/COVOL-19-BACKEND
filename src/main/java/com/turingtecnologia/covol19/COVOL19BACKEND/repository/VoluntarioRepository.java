@@ -9,6 +9,8 @@ import com.turingtecnologia.covol19.COVOL19BACKEND.models.Voluntario;
 
 public interface VoluntarioRepository extends JpaRepository<Voluntario, Long>{
 	
-	List<Voluntario> findByCidadeLikeIgnoreCase(String cidade);
+	List<Voluntario> findByLocalidadeLikeIgnoreCase(String localidade);
+	
+	List<Voluntario> findByCepLikeIgnoreCase(String cep);
 
 }

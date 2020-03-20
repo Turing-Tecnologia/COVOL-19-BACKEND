@@ -19,33 +19,37 @@ import com.turingtecnologia.covol19.COVOL19BACKEND.repository.VoluntarioReposito
 @RequestMapping(value = "/voluntariarse")
 public class VoluntarioController {
 
-	
 	@Autowired
 	VoluntarioRepository repository;
-	
+
 	@PostMapping(value = "/voluntario")
 	public Voluntario salvaVoluntario(@RequestBody Voluntario voluntario) {
 		return repository.save(voluntario);
 	}
-	
+
 	@PutMapping(value = "/voluntario")
 	public Voluntario atualizaVoluntario(@RequestBody Voluntario voluntario) {
 		return repository.save(voluntario);
 	}
-	
-	
+
 	@GetMapping(value = "/voluntarios")
-	public List<Voluntario> getVoluntarios(){
+	public List<Voluntario> getVoluntarios() {
 		return repository.findAll();
 	}
-	
-	@GetMapping(value = "/voluntarios/{cidade}")
-	public List<Voluntario> listaVoluntariosPorCidade(@PathVariable(value = "cidade") String cidade){
-		return repository.findByCidadeLikeIgnoreCase(cidade);
+
+	@GetMapping(value = "/voluntarios/localidade/{localidade}")
+	public List<Voluntario> listaVoluntariosPorCidade(@PathVariable(value = "localidade") String localidade) {
+		return repository.findByLocalidadeLikeIgnoreCase(localidade);
 	}
-	
+
+	@GetMapping(value = "/voluntarios/cep/{cep}")
+	public List<Voluntario> listaVoluntariosPorCep(@PathVariable(value = "cep") String cep) {
+		return repository.findByCepLikeIgnoreCase(cep);
+	}
+
 	@DeleteMapping(value = "/voluntario")
 	public void removeVoluntario(@RequestBody Voluntario voluntario) {
 		repository.delete(voluntario);
 	}
+
 }
