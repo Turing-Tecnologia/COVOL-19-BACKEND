@@ -13,4 +13,10 @@ public interface VoluntarioRepository extends JpaRepository<Voluntario, Long>{
 	
 	List<Voluntario> findByCepLikeIgnoreCase(String cep);
 
+	Voluntario findByContato(String contato);
+
+	void deleteByContato(String contato);
+
+
+
 }

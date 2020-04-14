@@ -53,10 +53,11 @@ public class VoluntarioController {
 	public List<Voluntario> listaVoluntariosPorCep(@PathVariable(value = "cep") String cep) {
 		return repository.findByCepLikeIgnoreCase(cep);
 	}
-/*
-	@DeleteMapping(value = "/voluntario")
-	public void removeVoluntario(@RequestBody Voluntario voluntario) {
-		repository.delete(voluntario);
+
+	@ApiOperation(value = "(NOVO) Encontra um voluntario pelo contato informado por ele e o remove da base de dados")
+	@DeleteMapping(value = "/voluntario/{contato}")
+	public void removeVoluntarioPeloContato(@PathVariable (value = "contato") String contato) {
+		repository.deleteByContato(contato);
 	}
-*/
+
 }
