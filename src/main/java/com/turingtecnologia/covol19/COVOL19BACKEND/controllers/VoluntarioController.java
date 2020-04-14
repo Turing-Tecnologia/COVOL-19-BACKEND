@@ -55,7 +55,7 @@ public class VoluntarioController {
 	}
 
 	@ApiOperation(value = "(NOVO) Encontra um voluntario pelo contato informado por ele e o remove da base de dados")
-	@DeleteMapping(value = "/voluntario/{contato}")
+	@DeleteMapping(value = "/voluntario/contato/{contato}")
 	public void removeVoluntarioPeloContato(@PathVariable (value = "contato") String contato) {
 		repository.deleteByContato(contato);
 	}
